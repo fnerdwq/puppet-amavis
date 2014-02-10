@@ -1,8 +1,8 @@
 # configuring amavis (private)
 class amavis::config {
 
-  $enable_viruschecks = str2bool($amavis::viruschecks)
-  $enable_spamchecks  = str2bool($amavis::spamchecks)
+  $viruschecks = str2bool($amavis::viruschecks)
+  $spamchecks  = str2bool($amavis::spamchecks)
 
   File {
     owner => root,

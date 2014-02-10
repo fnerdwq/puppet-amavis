@@ -7,7 +7,7 @@ use strict;
 # Default antivirus checking mode
 # Please note, that anti-virus checking is DISABLED by 
 # default.
-<% if @enable_viruschecks -%> 
+<% if @viruschecks -%> 
 @bypass_virus_checks_maps = (
    \%bypass_virus_checks, \@bypass_virus_checks_acl, \$bypass_virus_checks_re);
 <% end -%>
@@ -16,7 +16,7 @@ use strict;
 # Default SPAM checking mode
 # Please note, that anti-spam checking is DISABLED by 
 # default.
-<% if @enable_viruschecks -%> 
+<% if @spamchecks -%> 
 @bypass_spam_checks_maps = (
    \%bypass_spam_checks, \@bypass_spam_checks_acl, \$bypass_spam_checks_re);
 <% end -%>

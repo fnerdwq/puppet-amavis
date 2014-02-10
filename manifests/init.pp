@@ -7,11 +7,11 @@
 #
 # === Parameters
 #
-# [*enable_viruschecks*]
+# [*viruschecks*]
 #   Enables virus checking in amavis.
 #   *Optional* (defaults to false)
 #
-# [*enable_spamchecks*]
+# [*spamchecks*]
 #   Enables spam checking in amavis.
 #   *Optional* (defaults to false).
 #
@@ -28,12 +28,12 @@
 # Copyright 2014 Frederik Wagner
 #
 class amavis (
-  $enable_viruschecks = false,
-  $enable_spamchecks = false,
+  $viruschecks = false,
+  $spamchecks = false,
 ) {
 
-  validate_bool(str2bool($enable_viruschecks))
-  validate_bool(str2bool($enable_spamchecks))
+  validate_bool(str2bool($viruschecks))
+  validate_bool(str2bool($spamchecks))
 
 
   contain amavis::install
