@@ -1,7 +1,7 @@
 # managing the service (private)
 class amavis::service {
 
-  services {'amavis':
+  service {'amavis':
     ensure     => running,
     enable     => true,
     hasrestart => true,
