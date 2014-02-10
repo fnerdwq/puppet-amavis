@@ -3,7 +3,7 @@ use strict;
 # $myhostname is used by amavisd-new for node identification, and it is
 # important to get it right (e.g. for ESMTP EHLO, loop detection, and so on).
 
-$myhostname = <%= scope.lookupvar('myhostname') -%>;
+$myhostname = <%= scope.lookupvar('amavis::myhostname') -%>;
 
 # To manually set $myhostname, edit the following line with the correct Fully
 # Qualified Domain Name (FQDN) and remove the # at the beginning of the line.
