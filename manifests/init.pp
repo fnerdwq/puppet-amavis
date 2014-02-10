@@ -7,6 +7,14 @@
 #
 # === Parameters
 #
+# [*myhostname*]
+#   Hostname to use.
+#   *Optional* (defaults to $::fqdn)
+#
+# [*mydomain*]
+#   Domain to use.
+#   *Optional* (defautls to $::domain)
+#
 # [*viruschecks*]
 #   Enables virus checking in amavis.
 #   *Optional* (defaults to false)
@@ -28,10 +36,14 @@
 # Copyright 2014 Frederik Wagner
 #
 class amavis (
+  $myhostname  = $::fqdn,
+  $mydomain    = $::domain,
   $viruschecks = false,
-  $spamchecks = false,
+  $spamchecks  = false,
 ) {
 
+  validate_string($myhostname)
+  validate_string($mydomain)
   validate_bool(str2bool($viruschecks))
   validate_bool(str2bool($spamchecks))
 
