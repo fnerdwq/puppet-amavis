@@ -60,7 +60,7 @@ class amavis (
       ['^D_DISCARD$','^D_BOUNCE$','^D_REJECT$','^D_PASS$'] )
   }
   if $sa_tag_level_deflt {
-    validate_re($sa_tag_level_deflt, '^-?\d+(\.\d*)?^')
+    validate_re($sa_tag_level_deflt, '^-?\d+(\.\d{0,2})?$')
   }
 
   contain amavis::install
