@@ -44,8 +44,8 @@ class amavis (
 
   validate_string($myhostname)
   validate_string($mydomain)
-  validate_bool(str2bool($viruschecks))
-  validate_bool(str2bool($spamchecks))
+  validate_bool($viruschecks)
+  validate_bool($spamchecks)
 
 
   contain amavis::install
