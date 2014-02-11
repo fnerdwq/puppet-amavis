@@ -1,8 +1,11 @@
 # configuring amavis (private)
 class amavis::config {
 
-  $viruschecks = $amavis::viruschecks
-  $spamchecks  = $amavis::spamchecks
+  $viruschecks        = $amavis::viruschecks
+  $spamchecks         = $amavis::spamchecks
+
+  $final_spam_destiny = $amavis::final_spam_destiny
+  $sa_tag_level_deflt = $amavis::sa_tag_level_deflt
 
   File {
     owner => root,
