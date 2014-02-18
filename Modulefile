@@ -4,7 +4,7 @@ source 'https://github.com/fnerdwq/puppet-amavis.git'
 author 'Frederik Wagner'
 license 'Apache License, Version 2.0'
 summary 'Puppet module managing amavisd-new'
-description 'Small module to manage amavisd-new on Debian like sysetems'
+description 'Small module to manage amavisd-new on Debian like systems'
 project_page 'https://github.com/fnerdwq/puppet-amavis'
 
 ## Add dependencies, if any:
