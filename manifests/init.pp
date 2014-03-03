@@ -23,11 +23,17 @@
 #   Enables spam checking in amavis.
 #   *Optional* (defaults to false).
 #
-# [*final_spam_destiny*]
-#   *Optional* (Debian default: D_BOUNCE)
+# [*user_config*]
+#   Arbitrary user orveride as to be put in amavisd.conf
+#   *Optional* (defaults to undef)
 #
-# [*sa_tag_level_deflt*]
-#   *Optional* (Debian default: 2.0)
+# [*whitelist*]
+#   Whitelist of email addresses (one per line)
+#   *Optional* (defaults to '')
+#
+# [*blacklist*]
+#   Blacklist of Email addresses (one per line)
+#   *Optional* (defaults to '')
 #
 # === Examples
 #
@@ -42,26 +48,22 @@
 # Copyright 2014 Frederik Wagner
 #
 class amavis (
-  $myhostname         = $::fqdn,
-  $mydomain           = $::domain,
-  $viruschecks        = false,
-  $spamchecks         = false,
-  $final_spam_destiny = undef,
-  $sa_tag_level_deflt = undef,
+  $myhostname  = $::fqdn,
+  $mydomain    = $::domain,
+  $viruschecks = false,
+  $spamchecks  = false,
+  $user_config = undef,
+  $whitelist   = '',
+  $blacklist   = '',
 ) {
 
   validate_string($myhostname)
   validate_string($mydomain)
   validate_bool($viruschecks)
   validate_bool($spamchecks)
-
-  if $final_spam_destiny {
-    validate_re($final_spam_destiny,
-      ['^D_DISCARD$','^D_BOUNCE$','^D_REJECT$','^D_PASS$'] )
-  }
-  if $sa_tag_level_deflt {
-    validate_re($sa_tag_level_deflt, '^-?\d+(\.\d{0,2})?$')
-  }
+  validate_string($user_config)
+  validate_string($whitelist)
+  validate_string($blacklist)
 
   contain amavis::install
   contain amavis::config

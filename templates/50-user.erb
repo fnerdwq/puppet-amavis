@@ -9,11 +9,9 @@ use strict;
 # See /usr/share/doc/amavisd-new/ for documentation and examples of
 # the directives you can use in this file
 #
-<% if @final_spam_destiny -%>
-$final_spam_destiny       = <%= @final_spam_destiny -%>;
-<% end -%>
-<% if @sa_tag_level_deflt -%>
-$sa_tag_level_deflt       = <%= @sa_tag_level_deflt -%>;
+
+<% if @user_config -%>
+<%= @user_config %>
 <% end -%>
 
 #------------ Do not modify anything below this line -------------

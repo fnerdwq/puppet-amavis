@@ -4,9 +4,6 @@ class amavis::config {
   $viruschecks        = $amavis::viruschecks
   $spamchecks         = $amavis::spamchecks
 
-  $final_spam_destiny = $amavis::final_spam_destiny
-  $sa_tag_level_deflt = $amavis::sa_tag_level_deflt
-
   File {
     owner => root,
     group => root,
@@ -53,9 +50,20 @@ class amavis::config {
     content => template('amavis/30-template_localization.erb'),
   }
 
+  $user_config = $amavis::user_config
   file {'/etc/amavis/conf.d/50-user':
     ensure  => present,
     content => template('amavis/50-user.erb'),
+  }
+
+  # White and Blacklist
+  file {'/etc/amavis/whitelist':
+    ensure  => present,
+    content => $amavis::whitelist,
+  }
+  file {'/etc/amavis/blacklist':
+    ensure  => present,
+    content => $amavis::blacklist,
   }
 
 }
