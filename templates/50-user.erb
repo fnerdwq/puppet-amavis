@@ -10,6 +10,10 @@ use strict;
 # the directives you can use in this file
 #
 
+# black and whitelist in extra files
+read_hash(\%blacklist_sender, "/etc/amavis/blacklist");
+read_hash(\%whitelist_sender, "/etc/amavis/whitelist");
+
 <% if @user_config -%>
 <%= @user_config %>
 <% end -%>
